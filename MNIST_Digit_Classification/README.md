@@ -1,61 +1,131 @@
-﻿# MNIST Digit Classification
+# MNIST Digit Classification - TensorFlow Implementation
 
-## Project Overview
+This folder contains the main training script and project structure for the MNIST digit classification project.
 
-This project trains a TensorFlow / Keras neural network to classify handwritten digits from the MNIST dataset. The model is built with a simple fully connected network and is evaluated with test accuracy, confusion matrix, and sample prediction visualizations.
+## 📂 Files
 
-## Dataset Description
+- **mnist_classifier.py** - Main training and evaluation script
+- **requirements.txt** - Python package dependencies
+- **README.md** - Project documentation (this file)
+- **saved_model/** - Directory containing the trained model
+- **plots/** - Generated training curves and confusion matrix
+- **images/** - Sample images and predictions visualization
 
-The MNIST dataset contains 70,000 handwritten digit images:
-- 60,000 training images
-- 10,000 test images
-- Image shape: 28x28 pixels
-- Grayscale values: 0-255
-- Classes: 10 digits (0-9)
+## 🚀 Quick Start
 
-## Installation Steps
-
-1. Open the project folder in Visual Studio Code.
-2. Create a virtual environment and activate it:
-
-```bash
-python -m venv venv
-venv\Scripts\activate
-```
-
-3. Install dependencies:
+### Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## How to Run
-
-Run the main script from the terminal:
+### Run Training
 
 ```bash
 python mnist_classifier.py
 ```
 
-## Expected Output
-
 The script will:
-- Load the MNIST dataset from TensorFlow
-- Display dataset shapes and class count
-- Save sample images to `images/sample_images.png`
-- Train a neural network for 10 epochs
-- Save accuracy and loss graphs to `plots/`
-- Save a confusion matrix to `plots/confusion_matrix.png`
-- Save sample predictions to `images/sample_predictions.png`
-- Save the trained model as `saved_model/mnist_digit_classifier.h5`
+1. Load the MNIST dataset
+2. Preprocess and normalize the data
+3. Build and train a neural network
+4. Evaluate on test data
+5. Generate visualizations and save the model
 
-## Concepts Used
+## 📊 Neural Network Architecture
 
-- TensorFlow / Keras model building
-- Data normalization and reshaping
-- Dense neural network layers
-- Model compilation with Adam optimizer
-- Sparse categorical crossentropy loss
-- Training / validation split
-- Model evaluation and prediction
-- Visualization of training curves, confusion matrix, and sample predictions
+```
+Input: 28x28 images
+  ↓
+Flatten: 784 neurons
+  ↓
+Dense: 128 neurons (ReLU)
+  ↓
+Dense: 64 neurons (ReLU)
+  ↓
+Output: 10 neurons (Softmax)
+```
+
+## 🎯 Model Configuration
+
+- **Optimizer**: Adam
+- **Loss Function**: Sparse Categorical Crossentropy
+- **Metrics**: Accuracy
+- **Epochs**: 10
+- **Batch Size**: 128
+- **Validation Split**: 10%
+
+## 📈 Output Files
+
+After running the script, you'll find:
+
+- `saved_model/mnist_digit_classifier.h5` - Trained model
+- `plots/accuracy.png` - Training/Validation accuracy curve
+- `plots/loss.png` - Training/Validation loss curve
+- `plots/confusion_matrix.png` - Confusion matrix heatmap
+- `images/sample_images.png` - Random MNIST samples
+- `images/sample_predictions.png` - Correct and incorrect predictions
+
+## 📊 Expected Performance
+
+- **Training Accuracy**: ~99%+
+- **Test Accuracy**: ~97-98%
+- **Test Loss**: ~0.07-0.08
+
+## 🐍 Requirements
+
+- Python 3.13+
+- TensorFlow 2.21+
+- NumPy 2.4+
+- Matplotlib 3.10+
+- Scikit-learn 1.9+
+
+## 💡 Code Walkthrough
+
+The script follows 12 main steps:
+
+1. Import libraries
+2. Load MNIST dataset
+3. Display dataset info and sample images
+4. Normalize and preprocess data
+5. Build neural network architecture
+6. Compile model
+7. Train the model
+8. Evaluate on test data
+9. Make predictions
+10. Generate accuracy and loss graphs
+11. Show correct/incorrect predictions
+12. Save the trained model
+
+Each step includes detailed print statements for tracking progress.
+
+## 🔧 Customization
+
+You can modify these parameters in `mnist_classifier.py`:
+
+- `epochs` - Number of training epochs (default: 10)
+- `batch_size` - Mini-batch size (default: 128)
+- `validation_split` - Validation data percentage (default: 0.1)
+- Dense layer sizes - Change network architecture
+- Learning rate - Adjust optimizer parameters
+
+## ⚠️ Notes
+
+- First run will download MNIST dataset (~11MB)
+- Training time depends on your CPU/GPU
+- The `.h5` model file can be loaded for inference later
+- Plots are saved as PNG files for easy viewing
+
+## 📚 Further Learning
+
+- Experiment with different network architectures
+- Try adding dropout layers for regularization
+- Implement data augmentation techniques
+- Explore convolutional neural networks (CNN)
+- Compare with other optimizers (SGD, RMSprop)
+
+---
+
+**Created**: June 2026  
+**Framework**: TensorFlow/Keras  
+**Dataset**: MNIST (70,000 handwritten digits)
