@@ -1,0 +1,47 @@
+# Virtual Environments
+.venv/
+.venv-1/
+.venv_tf/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project specific
+saved_model/*.h5
+saved_model/*.keras
+plots/*.png
+images/*.png
+*.h5
+*.keras
